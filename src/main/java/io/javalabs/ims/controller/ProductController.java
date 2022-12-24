@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.javalabs.ims.dto.ProductRequestDTO;
@@ -57,6 +58,12 @@ public class ProductController {
 	public ResponseEntity<ProductResponseDTO> getProductById(@PathVariable("id") Long id){
 		ProductResponseDTO getProductById = productService.getProductById(id);
 		return new ResponseEntity<>(getProductById,HttpStatus.OK);
+	}
+	
+	@GetMapping("/product/search")
+	public ResponseEntity<List<ProductResponseDTO>> getProductByName(@RequestParam(name="findBy") String findBy, @RequestParam(name="operation") String operation, @RequestParam(name="value") String value) throws Exception{
+		List<ProductResponseDTO> products = productService.advanceSearch(findBy, operation, value);
+		return new ResponseEntity<>(products,HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/product/{id}")

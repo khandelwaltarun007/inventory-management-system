@@ -13,4 +13,7 @@ public interface ProductService {
 	public void deleteProduct(Long id);
 	public ProductResponseDTO getProductById(Long id);
 	public List<ProductResponseDTO> addProducts(List<ProductRequestDTO> products);
+	public List<ProductResponseDTO> getProductByName(String name);
+	public List<ProductResponseDTO> getProductBySupplier(String supplier);
+	public List<ProductResponseDTO> advanceSearch(String findBy, String operation, String value) throws Exception;
 }

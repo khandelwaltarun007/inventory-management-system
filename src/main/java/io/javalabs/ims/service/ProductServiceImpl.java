@@ -2,6 +2,7 @@ package io.javalabs.ims.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -63,6 +64,52 @@ public class ProductServiceImpl implements ProductService{
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	@Override
+	public List<ProductResponseDTO> getProductByName(String name) {
+		Optional<List<Product>> products = productRepository.findByName(name);
+		return ValueMapper.convertProductEntitiestoResponseDTOs(products.get());
+	}
+
+	@Override
+	public List<ProductResponseDTO> advanceSearch(String findBy, String operation, String value) throws Exception {
+		List<ProductResponseDTO> products = null;
+		switch(operation) {
+		case "equals":
+		case "equal":
+		case "=":
+		case "==":
+			products = findByFieldEquals(findBy, value);
+			break;
+		default:
+			throw new Exception("Invalid Operation.");
+		}
+		return products;
+	}
+
+	private List<ProductResponseDTO> findByFieldEquals(String findBy, String value) throws Exception {
+		List<ProductResponseDTO> productResponseDTO = null;
+		switch(findBy.toLowerCase()) {
+		case "id":
+			productResponseDTO = List.of(getProductById(Long.valueOf(value)));
+			break;
+		case "name":
+			productResponseDTO = getProductByName(value);
+			break;
+		case "suppliercode":
+			productResponseDTO = getProductBySupplier(value);
+			break;
+		default:
+			throw new Exception("Invalid Field");
+		}
+		return productResponseDTO;
+	}
+
+	@Override
+	public List<ProductResponseDTO> getProductBySupplier(String supplier) {
+		Optional<List<Product>> products = productRepository.findBySupplier(supplier);
+		return ValueMapper.convertProductEntitiestoResponseDTOs(products.get());
 	}
 
 }

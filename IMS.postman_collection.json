@@ -125,6 +125,52 @@
 			"response": []
 		},
 		{
+			"name": "Advanced Search",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/product/search?findBy=supplierCode&operation=equal&value=Tarun",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"search"
+					],
+					"query": [
+						{
+							"key": "findBy",
+							"value": "supplierCode"
+						},
+						{
+							"key": "operation",
+							"value": "equal"
+						},
+						{
+							"key": "value",
+							"value": "Tarun"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Update Product",
 			"request": {
 				"method": "PUT",
