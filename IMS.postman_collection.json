@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "a3c0dac5-8e8d-4d56-ad28-b78f9d273d3b",
+		"name": "IMS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Apple\",\r\n    \"description\": \"Apple Product\",\r\n    \"productType\": \"Mobile\",\r\n    \"quantity\": 500,\r\n    \"price\": 1000,\r\n    \"supplierName\": \"Param Mobiles\",\r\n    \"supplierCode\": \"Tarun\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"name\": \"Apple\",\r\n        \"description\": \"Apple Product\",\r\n        \"productType\": \"Mobile\",\r\n        \"quantity\": 500,\r\n        \"price\": 1000,\r\n        \"supplierName\": \"Param Mobiles\",\r\n        \"supplierCode\": \"Tarun\"\r\n    },\r\n    {\r\n        \"name\": \"Samsung\",\r\n        \"description\": \"Samsung Product\",\r\n        \"productType\": \"Mobile\",\r\n        \"quantity\": 100,\r\n        \"price\": 54.23,\r\n        \"supplierName\": \"Tarun Mobiles\",\r\n        \"supplierCode\": \"Tarun Khandelwal\"\r\n    },\r\n    {\r\n        \"name\": \"Nokia\",\r\n        \"description\": \"Nokia Product\",\r\n        \"productType\": \"Mobile\",\r\n        \"quantity\": 124,\r\n        \"price\": 2500,\r\n        \"supplierName\": \"Param Mobiles\",\r\n        \"supplierCode\": \"Tarun\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get List Product",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product By Id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/product/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":1,\r\n    \"name\": \"Apple\",\r\n    \"description\": \"Apple Product\",\r\n    \"productType\": \"Mobile\",\r\n    \"quantity\": 500,\r\n    \"price\": 1000,\r\n    \"supplierName\": \"Aparna Mobiles\",\r\n    \"supplierCode\": \"Tarun\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/product/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
